@@ -11,36 +11,34 @@ export class DashboardComponent implements OnInit{
 
     articles;
     pageSize = 5;
-    n = 1;
+    pageNumber = 1;
 
     constructor(private readonly articleService: ArticleService) {}
 
     ngOnInit() {
 
-        this.articleService.getArticles(this.pageSize, this.n).subscribe((result) => {
+        this.articleService.getArticles(this.pageSize, this.pageNumber).subscribe((result) => {
             console.log(result);
             this.articles = result;
         });
     }
 
     previous() {
-        if (this.n <= 1) {
+        if (this.pageNumber <= 1) {
             return;
         }
 
-        this.n--;
-        this.articleService.getArticles(this.pageSize, this.n).subscribe((result) => {
-            console.log(result);
+        this.pageNumber--;
+        this.articleService.getArticles(this.pageSize, this.pageNumber).subscribe((result) => {
             this.articles = result;
         });
     }
 
     next() {
-        this.n++;
-        this.articleService.getArticles(this.pageSize, this.n).subscribe((result) => {
-            console.log(result);
+        this.pageNumber++;
+        this.articleService.getArticles(this.pageSize, this.pageNumber).subscribe((result) => {
             if(!result.length) {
-                this.n--;
+                this.pageNumber--;
                 return;
             } else {
                 this.articles = result;

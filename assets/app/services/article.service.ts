@@ -6,7 +6,7 @@ import {Observable} from "rxjs/Observable";
 export class ArticleService {
     constructor(private readonly http: HttpClient) {}
 
-    getArticles(pageSize, n): Observable<any> {
-        return this.http.post('http://localhost:3000/api/article', {pageSize, n});
+    getArticles(pageSize, pageNumber): Observable<any> {
+        return this.http.post('http://localhost:3000/api/article', {pageSize, pageNumber});
     }
 }

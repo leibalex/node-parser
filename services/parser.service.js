@@ -9,9 +9,12 @@ const selectorOptions = {
 const parseArticle = async ($) => {
     $('div.see-more, div.post-comments, div.post-ad, div.news-subscribe, div.post-social, div.post-tags, div.block-wrap-right, div.mistape_caption, footer, ' +
         'div.post-data, div.post-lead-content, div.post-social').remove();
+
     const title = $(selectorOptions.title).text();
     $(selectorOptions.title).remove();
+
     const text = $(selectorOptions.text).text().trim();
+
     const imagesUrl = [];
     $(selectorOptions.image).each((index, element) => {
         const url = $(element).attr('src');

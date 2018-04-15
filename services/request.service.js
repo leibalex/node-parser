@@ -13,9 +13,7 @@ const getArticlesUrl = async (categoryUrls) => {
             }
         };
 
-        const articleUrl = await rp(options).then(($) => {
-            return  parseCategory($);
-        });
+        const articleUrl = await rp(options).then(($) => parseCategory($));
 
         articleUrls.push(...articleUrl);
     }
@@ -40,3 +38,4 @@ module.exports = {
     getArticle,
     getArticlesUrl,
 };
+
