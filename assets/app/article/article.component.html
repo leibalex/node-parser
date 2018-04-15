@@ -1,0 +1,12 @@
+<div class="container">
+    <h1>{{article.title}}</h1>
+    <p>{{isFullArticle? article.text: article.text.substring(0, 301)}}</p>
+    <div *ngIf="isFullArticle && article.imagesUrl.length">
+        <p *ngFor="let url of article.imagesUrl">
+            <img src="{{url}}">
+        </p>
+    </div>
+    <div class="container">
+        <button (click)="toogle()">{{isFullArticle? 'Hide': 'More'}}</button>
+    </div>
+</div>

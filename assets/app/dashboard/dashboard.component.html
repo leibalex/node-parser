@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="container" *ngFor="let article of articles">
+        <app-article [article]="article"></app-article>
+    </div>
+    <div class="container">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary" (click)="previous()">Previous</button>
+            <button type="button" class="btn btn-primary" (click)="next()">Next</button>
+        </div>
+    </div>
+</div>

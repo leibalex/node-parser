@@ -23,7 +23,6 @@ const parseArticle = async ($) => {
         text,
         imagesUrl
     });
-    console.log(article);
 
     return await article.save();
 };

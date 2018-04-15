@@ -31,12 +31,12 @@ const getArticle = async (articleUrl) => {
         }
     };
 
-    const article = await rp(options).then(($) => {
-        return parseArticle($);
-    }).then(() => console.log('meow'));
+    const article = await rp(options).then(($) => parseArticle($))
+        .then(() => console.log('meow'));
 };
+
 
 module.exports = {
     getArticle,
-    getArticlesUrl
+    getArticlesUrl,
 };
